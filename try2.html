@@ -3,35 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>JS Bin</title>
+  <title>Target pseudo selector example</title>
   <style>
     .block-custom {
       height:200px;
       width:200px;
       padding:20px;
       border: 2px solid #ccc;
-  
- 
-}
-.custom-block {
-  background-color:red;
-}
-    /* .block-custom:target {
+    }
+    .block-custom:target {
       background-color:red;
     }
-     */
-
+    
     button{
+      /*copied*/
       position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color:#0C9;
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
+	  width:60px;
+  	height:60px;
+	  bottom:40px;
+	  right:40px;
+	  background-color:#0C9;
+	  color:#FFF;
+	  border-radius:50px;
+	  text-align:center;
+	  box-shadow: 2px 2px 3px #999;
     }
   </style>
 </head>
@@ -58,9 +53,8 @@ moveNext = function(x,y){
   console.log(range);
   num++;
  
-    element.setAttribute("id", "focused_"+num);
+  element.setAttribute("id", "focused_"+num);
   window.location.hash = "#focused_"+num;
-  element.className +=" custom-block";
  
    console.log(element);
   
