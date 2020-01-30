@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    .block-custom {
+      height:200px;
+      width:200px;
+      padding:20px;
+      border: 2px solid #ccc;
+  
+ 
+}
+.custom-block {
+  background-color:red;
+}
+    /* .block-custom:target {
+      background-color:red;
+    }
+     */
+
+    button{
+      position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="block-custom">hello</div>
+  <div class="block-custom">hello2</div>
+  <div class="block-custom">hello3</div>
+  
+  <div class="block-custom">hello4</div>
+  <div class="block-custom">hello5</div>
+  <div class="block-custom">hello6</div>
+  
+  <div class="block-custom">hello7</div>
+  <div class="block-custom">hello8</div>
+  <div class="block-custom">hello9</div>
+  <button onClick="moveNext()">Move Next</button>
+ 
+<script>
+var num = 0;
+window.location.hash = "#focused_0";
+moveNext = function(x,y){
+  var range = document.caretRangeFromPoint(0,10); // screen coordinates of upper-left corner of a scolled area (in this case screen itself)
+  var element = range.startContainer.parentElement.nextElementSibling; // this an upper onscreen element
+  console.log(range);
+  num++;
+ 
+    element.setAttribute("id", "focused_"+num);
+  window.location.hash = "#focused_"+num;
+  element.className +=" custom-block";
+ 
+   console.log(element);
+  
+  // console.log(document.elementFromPoint(10, 10));
+  
+}
+</script>
+</body>
+</html>

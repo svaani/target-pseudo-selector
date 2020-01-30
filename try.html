@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+  <style>
+    .block-custom {
+      height:200px;
+      width:200px;
+      padding:20px;
+      border: 2px solid #ccc;
+}
+    .block-custom:target {
+      background-color:red;
+    }
+    .block-custom:target + div {
+      background-color:red;
+    }
+  </style>
+</head>
+<body>
+  <div id="focused">
+  <div class="block-custom">hello</div>
+  <div class="block-custom">hello2</div>
+  <div class="block-custom">hello3</div>
+  
+  <div class="block-custom">hello</div>
+  <div class="block-custom">hello2</div>
+  <div class="block-custom">hello3</div>
+  
+  <div class="block-custom">hello</div>
+  <div class="block-custom">hello2</div>
+  <div class="block-custom">hello3</div>
+  
+  </div>
+<script>
+var num = 0;
+window.location.hash = "#focused_0";
+window.onscroll = function(x,y){
+  var range = document.caretRangeFromPoint(0,10); // screen coordinates of upper-left corner of a scolled area (in this case screen itself)
+  var element = range.startContainer.parentElement; // this an upper onscreen element
+  console.log(range);
+  num++;
+  if(Number(window.location.hash.split("_")[1])+10 <num){
+
+    element.setAttribute("id", "focused_"+num);
+  window.location.hash = "#focused_"+num;
+  }
+   console.log(element);
+  
+  // console.log(document.elementFromPoint(10, 10));
+  
+}
+</script>
+</body>
+</html>
